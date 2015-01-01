@@ -9,7 +9,7 @@ I wrote this so that I could play the 1998 win32 of Tie Fighter without a joysti
 
 How to use it
 ===============
-1. Compile from source or download the binary.
+1. Compile from source or download the binary (you may need to install the Visual C++ Redistributable inlcluded in the binary)
 2. Install the vJoy virtual joystick driver (http://vjoystick.sourceforge.net)
 3. Run MouseToJoystick
 4. Double right-click to enable "joystick mode". Your mouse cursor will be centered and deviations from the center when you move the mouse taken as joystick inputs.
