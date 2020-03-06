@@ -3,9 +3,9 @@ MouseToJoystick
 
 A simple vJoy (virtual joystick) feeder program which converts mouse to joystick. Written in C++/Qt5. Requires windows because it uses vJoy.
 
-vJoy is a virtual joystick driver for Windows (see http://vjoystick.sourceforge.net). This program reads data from the mouse and feeds it to vJoy, which simulated a joystick.
+vJoy is a virtual joystick driver for Windows (see http://vjoystick.sourceforge.net). This program reads data from the mouse and feeds it to vJoy, which simulates a joystick.
 
-I wrote this so that I could play the 1998 win32 of Tie Fighter without a joystick. Side to side movement of the mouse is mapped to the joystick's X axis. Up/down movement of the mouse is mapped to the joystick's Y axis. Left click is joystick button 1, right click is joystick button 2.
+I wrote this so that I could play the 1998 win32 version of Tie Fighter without a joystick. Side to side movement of the mouse is mapped to the joystick's X axis. Up/down movement of the mouse is mapped to the joystick's Y axis. Left click is joystick button 1, right click is joystick button 2.
 
 How to use it
 ===============
