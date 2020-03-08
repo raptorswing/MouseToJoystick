@@ -1,7 +1,6 @@
 ﻿using Gma.System.MouseKeyHook;
 using System;
 using System.Windows.Forms;
-using System.Timers;
 using vJoyInterfaceWrap;
 
 namespace MouseToJoystick2
