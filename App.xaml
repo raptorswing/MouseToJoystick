@@ -1,0 +1,9 @@
+﻿<Application x:Class="MouseToJoystick2.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MouseToJoystick2"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+    <local:MainWindowModel x:Key="MainWindowModel" />
+  </Application.Resources>
+</Application>

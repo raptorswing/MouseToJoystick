@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseToJoystick2", "MouseToJoystick2.csproj", "{5B00B256-FD7B-45BA-A601-971117292B40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B00B256-FD7B-45BA-A601-971117292B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B00B256-FD7B-45BA-A601-971117292B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B00B256-FD7B-45BA-A601-971117292B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B00B256-FD7B-45BA-A601-971117292B40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C8C8B9D-A88A-4DBC-B5D3-CE6241DFFE3D}
+	EndGlobalSection
+EndGlobal
