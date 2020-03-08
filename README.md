@@ -1,7 +1,7 @@
 MouseToJoystick
 ===============
 
-A simple vJoy (virtual joystick) feeder program which converts mouse to joystick. Written in C#. Runs only one Windows.
+A simple vJoy (virtual joystick) feeder program which converts mouse to joystick. Written in C#. Runs only on Windows.
 
 vJoy is a virtual joystick driver for Windows (see http://vjoystick.sourceforge.net). This program reads data from the mouse and feeds it to vJoy, which simulates a joystick.
 
