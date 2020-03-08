@@ -24,9 +24,9 @@ namespace MouseToJoystick2
         private vJoy joystick = null;
         private readonly uint id;
 
-        private long AXIS_MAX;
-        private long AXIS_MIN;
-        private long AXIS_MID;
+        private readonly long AXIS_MAX;
+        private readonly long AXIS_MIN;
+        private readonly long AXIS_MID;
 
         private const uint VJOY_BTN_1 = 1;
         private const uint VJOY_BTN_2 = 2;

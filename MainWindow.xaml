@@ -27,5 +27,6 @@
       <TextBox Width="32" Height="20" IsEnabled="{Binding ManualScreenSize}" Text="{Binding ScreenHeight}"/>
     </WrapPanel>
     <ToggleButton Content="Run" Click="ToggleButton_Click" IsChecked="{Binding ShouldRun}" Margin="10"></ToggleButton>
+    <TextBlock HorizontalAlignment="Right"><Hyperlink FontSize="10" Click="Hyperlink_Click">Open Source Info</Hyperlink></TextBlock>
   </StackPanel>
 </Window>
