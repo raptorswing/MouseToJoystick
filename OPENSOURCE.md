@@ -1,6 +1,6 @@
 This project uses code from open source projects.
 
-#MouseKeyHook
+# MouseKeyHook
 Copyright (c) 2004-2015, George Mamaladze
 All rights reserved.
 
@@ -29,5 +29,5 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#vJoy
+# vJoy
 vJoy (https://sourceforge.net/projects/vjoystick/) Is public domain software. Thanks!
