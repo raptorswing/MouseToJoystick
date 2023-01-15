@@ -22,11 +22,12 @@ namespace MouseToJoystick2
             if (model.ShouldRun == true)
             {
                 uint deviceId = Convert.ToUInt32(model.DeviceId);
+                string masterKey = model.MasterKey;
                 int manualWidth = Convert.ToInt32(model.ScreenWidth);
                 int manualHeight = Convert.ToInt32(model.ScreenHeight);
                 try
                 {
-                    handler = new MouseToJoystickHandler(deviceId, model.InvertX, model.InvertY, model.AutoCenter, model.AutoScreenSize, manualWidth, manualHeight);
+                    handler = new MouseToJoystickHandler(masterKey, deviceId, model.InvertX, model.InvertY, model.AutoCenter, model.AutoScreenSize, manualWidth, manualHeight);
                     model.SettingsEnabled = false;
                 }
                 catch (Exception err)

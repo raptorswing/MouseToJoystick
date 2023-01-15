@@ -1,5 +1,6 @@
 ﻿using Gma.System.MouseKeyHook;
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using vJoyInterfaceWrap;
 
@@ -7,12 +8,37 @@ namespace MouseToJoystick2
 {
     class MouseToJoystickHandler : IDisposable
     {
+        [DllImport("user32.dll")]
+        public static extern bool GetCursorPos(out POINT lpPoint);
+
+        [DllImport("User32.Dll")]
+        public static extern long SetCursorPos(int x, int y);
+
+        [DllImport("User32.Dll")]
+        public static extern bool ClientToScreen(IntPtr hWnd, ref POINT point);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct POINT
+        {
+            public int x;
+            public int y;
+
+            public POINT(int X, int Y)
+            {
+                x = X;
+                y = Y;
+            }
+        }
+
         readonly int invertX;
         readonly int invertY;
         readonly bool autoCenter;
         readonly bool autoSize;
         readonly int manualWidth;
         readonly int manualHeight;
+        readonly string masterKey;
+        bool active;
+        POINT lpPoint;
 
         // MouseKeyHook stuff
         private IKeyboardMouseEvents mouseEventHooker = null;
@@ -32,7 +58,7 @@ namespace MouseToJoystick2
         private const uint VJOY_BTN_2 = 2;
         private const uint VJOY_BTN_3 = 3;
 
-        public MouseToJoystickHandler(uint vjoyDevId, bool invertX, bool invertY, bool autoCenter, bool autoSize, int manualWidth, int manualHeight)
+        public MouseToJoystickHandler(string masterKey, uint vjoyDevId, bool invertX, bool invertY, bool autoCenter, bool autoSize, int manualWidth, int manualHeight)
         {
             this.id = vjoyDevId;
             this.invertX = invertX ? -1 : 1;
@@ -41,6 +67,10 @@ namespace MouseToJoystick2
             this.autoSize = autoSize;
             this.manualWidth = manualWidth;
             this.manualHeight = manualHeight;
+            this.masterKey = masterKey;
+            this.active = true;
+            this.lpPoint.x = 0;
+            this.lpPoint.y = 0;
 
             joystick = new vJoy();
 
@@ -95,6 +125,24 @@ namespace MouseToJoystick2
             mouseEventHooker.MouseMove += HandleMouseMove;
             mouseEventHooker.MouseDown += HandleMouseDown;
             mouseEventHooker.MouseUp += HandleMouseUp;
+            mouseEventHooker.KeyUp += HandleKeyUp;
+        }
+
+        private void HandleKeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Control && e.KeyCode.ToString() == masterKey)
+            {
+                if (active)
+                {
+                    GetCursorPos(out lpPoint);
+                    active = false;
+                }
+                else
+                { 
+                    SetCursorPos(lpPoint.x, lpPoint.y);
+                    active = true;
+                }
+            }
         }
 
         private void HandleMouseDown(object sender, MouseEventArgs e)
@@ -187,8 +235,11 @@ namespace MouseToJoystick2
 
             //Console.WriteLine(String.Format("{0}, {1} -> {2}, {3}", lastX, lastY, xOut, yOut));
 
-            joystick.SetAxis(xOut, this.id, HID_USAGES.HID_USAGE_X);
-            joystick.SetAxis(yOut, this.id, HID_USAGES.HID_USAGE_Y);
+            if (active)
+            {
+                joystick.SetAxis(xOut, this.id, HID_USAGES.HID_USAGE_X);
+                joystick.SetAxis(yOut, this.id, HID_USAGES.HID_USAGE_Y);
+            }
         }
 
         private static T Clamp<T>(T min, T val, T max) where T : IComparable<T>
