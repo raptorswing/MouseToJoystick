@@ -7,26 +7,28 @@
         mc:Ignorable="d"
         DataContext="{StaticResource MainWindowModel}"
         Title="MouseToJoystick" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight">
-  <StackPanel>
-    <Grid>
-      <Label Content="vJoy Device:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="26"/>
-      <TextBox x:Name="vJoyDeviceInput" HorizontalAlignment="Left" IsEnabled="{Binding SettingsEnabled}" Text="{Binding DeviceId}" VerticalAlignment="Top" Width="16" Margin="74,4,0,0" Grid.ColumnSpan="2" Height="20"/>
-    </Grid>
     <StackPanel>
-      <CheckBox x:Name="invertXCheckbox" Content="Invert X" Height="15" IsChecked="{Binding InvertX}" IsEnabled="{Binding SettingsEnabled}"/>
-      <CheckBox x:Name="invertYCheckbox" Content="Invert Y" Height="15" IsChecked="{Binding InvertY}" IsEnabled="{Binding SettingsEnabled}"/>
-      <CheckBox Content="Auto-Center" IsChecked="{Binding AutoCenter}" Height="15" IsEnabled="{Binding SettingsEnabled}"/>
-    </StackPanel>
-    <WrapPanel>
-      <Label Content="Screen Size: "/>
-      <RadioButton Content="Automatic" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="0,0,5,0" IsChecked="{Binding AutoScreenSize}" GroupName="ScreenSize" IsEnabled="{Binding SettingsEnabled}"/>
-      <RadioButton Content="Custom" VerticalContentAlignment="Center" GroupName="ScreenSize" IsChecked="{Binding ManualScreenSize}" IsEnabled="{Binding SettingsEnabled}"/>
-      <Label Content="W:" />
-      <TextBox Width="32" Height="20" IsEnabled="{Binding ManualScreenSize}" Text="{Binding ScreenWidth}"/>
-      <Label Content="H:" />
-      <TextBox Width="32" Height="20" IsEnabled="{Binding ManualScreenSize}" Text="{Binding ScreenHeight}"/>
-    </WrapPanel>
+        <Grid>
+            <Label Content="vJoy Device:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="26"/>
+            <TextBox x:Name="vJoyDeviceInput" HorizontalAlignment="Left" IsEnabled="{Binding SettingsEnabled}" Text="{Binding DeviceId}" VerticalAlignment="Top" Width="16" Margin="74,4,0,0" Grid.ColumnSpan="2" Height="20"/>
+            <Label Content="Master: Ctrl +" HorizontalAlignment="Left" Margin="95,0,0,0" VerticalAlignment="Top" Height="26"/>
+            <TextBox x:Name="masterKey" HorizontalAlignment="Left" Margin="177,0,0,0" TextWrapping="Wrap" Text="{Binding MasterKey}" VerticalAlignment="Center" Height="20" Width="48" IsEnabled="{Binding SettingsEnabled}"/>
+        </Grid>
+        <StackPanel>
+            <CheckBox x:Name="invertXCheckbox" Content="Invert X" Height="15" IsChecked="{Binding InvertX}" IsEnabled="{Binding SettingsEnabled}"/>
+            <CheckBox x:Name="invertYCheckbox" Content="Invert Y" Height="15" IsChecked="{Binding InvertY}" IsEnabled="{Binding SettingsEnabled}"/>
+            <CheckBox Content="Auto-Center" IsChecked="{Binding AutoCenter}" Height="15" IsEnabled="{Binding SettingsEnabled}"/>
+        </StackPanel>
+        <WrapPanel>
+            <Label Content="Screen Size: "/>
+            <RadioButton Content="Automatic" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="0,0,5,0" IsChecked="{Binding AutoScreenSize}" GroupName="ScreenSize" IsEnabled="{Binding SettingsEnabled}"/>
+            <RadioButton Content="Custom" VerticalContentAlignment="Center" GroupName="ScreenSize" IsChecked="{Binding ManualScreenSize}" IsEnabled="{Binding SettingsEnabled}"/>
+            <Label Content="W:" />
+            <TextBox Width="32" Height="20" IsEnabled="{Binding ManualScreenSize}" Text="{Binding ScreenWidth}"/>
+            <Label Content="H:" />
+            <TextBox Width="32" Height="20" IsEnabled="{Binding ManualScreenSize}" Text="{Binding ScreenHeight}"/>
+        </WrapPanel>
     <ToggleButton Content="Run" Click="ToggleButton_Click" IsChecked="{Binding ShouldRun}" Margin="10"></ToggleButton>
     <TextBlock HorizontalAlignment="Right"><Hyperlink FontSize="10" Click="Hyperlink_Click">Open Source Info</Hyperlink></TextBlock>
-  </StackPanel>
+    </StackPanel>
 </Window>

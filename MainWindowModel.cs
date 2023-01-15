@@ -6,6 +6,7 @@ namespace MouseToJoystick2
 {
     public class MainWindowModel : INotifyPropertyChanged
     {
+        public string MasterKey { get; set; } = "X";
         public string DeviceId { get; set; } = "1";
         public bool InvertX { get; set; } = false;
         public bool InvertY { get; set; } = false;
@@ -13,7 +14,7 @@ namespace MouseToJoystick2
         public bool AutoScreenSize { get; set; } = true;
         public string ScreenWidth { get; set; } = "640";
         public string ScreenHeight { get; set; } = "480";
-        public bool AutoCenter { get; set; } = true;
+        public bool AutoCenter { get; set; } = false;
         public bool SettingsEnabled { get { return settingsEnabled; } set { settingsEnabled = value; NotifyPropertyChanged(); } }
 
         public event PropertyChangedEventHandler PropertyChanged;
